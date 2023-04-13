@@ -47,11 +47,11 @@ int claw = 2;
     msleep(2300);
     ao();
     
-    set_servo_position(0,1403);
+    set_servo_position(arm,1403);
     msleep(1000);
     
     
-    set_servo_position(2,1694);
+    set_servo_position(claw,1694);
     msleep(1000);
     
     
