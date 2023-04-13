@@ -8,12 +8,19 @@
 
 int main()
 {
-    enable_servos();
-    set_servo_position(0,1885);
-    set_servo_position(2,1147);
-   
+
     wait_for_light(1);
     shut_down_in(119);
+    
+    
+int arm = 0;
+int claw = 2;
+    
+    enable_servos();
+    set_servo_position(arm,1885);
+    set_servo_position(claw,1147);
+   
+
     
     motor(0,75);
     motor(3,75);
