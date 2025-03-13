@@ -1,0 +1,23 @@
+File: main.c  
+#include <kipr/wombat.h>
+​//This program can be used to slow down your servo!
+//It prevents the jerkiness on the servo when you are putting objects down.
+int main()
+{
+int counter = 200;
+int arm = 0; //change this to match your set up!
+int claw = 3;
+int up = 650;
+int down = 1800;
+int open = 485;
+int close = 1510;
+
+set_servo_position(arm,up);
+enable_servo();
+
+while(counter < 5)
+{
+motor(0,0);
+}
+    return 0;
+}
