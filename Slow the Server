@@ -4,6 +4,7 @@ File: main.c
 //It prevents the jerkiness on the servo when you are putting objects down.
 int main()
 {
+int count=0;
 int counter = 200;
 int arm = 0; //change this to match your set up!
 int claw = 3;
@@ -15,9 +16,11 @@ int close = 1510;
 set_servo_position(arm,up);
 enable_servo();
 
-while(counter < 5)
+while(count < 5)
 {
-motor(0,0);
+set_servo_position(arm, counter);
+counter = counter + 1;
+
 }
     return 0;
 }
