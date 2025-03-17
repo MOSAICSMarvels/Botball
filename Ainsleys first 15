@@ -1,0 +1,68 @@
+#include <kipr/wombat.h>
+
+int main()
+{
+    //motor(0,100);
+    //motor(3,100);
+    int arm = 0;
+    int claw = 3;
+    int up = 970;
+    int open = 500;
+    int down = 2040;
+    int close = 1000;
+    int medium =1921;
+
+    enable_servos();
+
+    set_servo_position(arm,up);
+    msleep(1000);
+    set_servo_position(claw,close);
+    msleep(1000);
+
+    motor(0,50);
+    motor(3,100);
+    msleep(3500);
+
+    motor(0,100);
+    motor(3,100);
+    msleep(2000);
+
+    set_servo_position(arm,medium);   
+    set_servo_position(claw,open);   
+    msleep(1000);
+
+    set_servo_position(claw,close);
+    msleep(1000);
+
+    motor(0,-100);
+    motor(3,-100);
+    msleep(2500);
+
+    set_servo_position(claw,open);
+    msleep(1000);
+
+    motor(0,-100);
+    motor(3,-100);
+    msleep(1000);
+
+
+    ao();
+    msleep(200);
+
+    motor(0,0);
+    motor(3,100);
+    msleep(700);
+
+    set_servo_position(claw,open); 
+    msleep(1000);
+
+    motor(0,-100);
+    motor(3,-100);
+    msleep(500);
+    
+    
+
+    disable_servos();
+
+    return 0;
+}
