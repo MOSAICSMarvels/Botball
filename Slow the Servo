@@ -15,12 +15,14 @@ int close = 1510;
 
 set_servo_position(arm,up);
 enable_servo();
-
+//to lower the servo slowly
 while(count < 5)
 {
 set_servo_position(arm, counter);
 counter = counter + 1;
 
 }
-    return 0;
+// to slowly raise your servo
+
+return 0;
 }
