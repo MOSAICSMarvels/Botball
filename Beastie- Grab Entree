@@ -4,12 +4,12 @@ int main()
 {
     printf("Hello World\n");
     enable_servos();
-    set_servo_position(0,325);
+    set_servo_position(0,325); //Start servo positions
     msleep(3000);
     set_servo_position(1,1390);
     msleep(1000);
   
-    motor(0,75);
+    motor(0,75);//Drive to entree
     motor(1,75);
     motor(2,75);
     motor(3,75);
@@ -18,7 +18,7 @@ int main()
     ao();
     msleep(100);
     
-    set_servo_position(0,1460);
+    set_servo_position(0,1460); //grab entree
     msleep(2000);
     
     ao();
@@ -33,7 +33,7 @@ int main()
     
     
     
-    motor(0,-75);
+    motor(0,-75); //next 3 are going to the trays
     motor(1,-75);
     motor(2,-75);
     motor(3,-75);
@@ -51,7 +51,7 @@ int main()
     motor(3,75);
     msleep(9900);
     
-    motor(0,-75);
+    motor(0,-75); //getting ready to drop hotdog in
     motor(1,-75);
     motor(2,75);
     motor(3,75);
@@ -67,7 +67,7 @@ int main()
     ao();
     msleep(100);
     
-    set_servo_position(0,1700);
+    set_servo_position(0,1700); //dropping entree in tray
     msleep(1000);
     
     ao();
@@ -76,7 +76,7 @@ int main()
     msleep(1000);
     
 
-       set_servo_position(0,2000);
+       set_servo_position(0,2000); //picking up tray
     msleep(1000);
     ao();
     msleep(100);
