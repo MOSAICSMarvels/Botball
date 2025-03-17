@@ -1,0 +1,31 @@
+#include <kipr/wombat.h>
+//use the camera to drive to green cup
+int main()
+{
+    camera_open();
+    msleep(3000);
+    int count;
+    camera_update();//update the camera until it succeeds
+    
+    count = get_object_count(0);
+    printf("There are %d objects on the screen.\n", count);
+    
+
+    
+    
+    while(a_button()==0)
+    {
+
+        if(get_object_count(0) >0)
+        {
+          printf("I see green!\n");  
+        }
+        else
+        {
+            printf("Where is green?\n");
+        }
+    }
+    ao();
+    camera_close();
+    return 0;
+}
