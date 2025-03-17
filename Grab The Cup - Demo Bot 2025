@@ -34,7 +34,7 @@ int main()
     ao();
     msleep(500);
     
-    set_servo_position(3,1361);
+    set_servo_position(3,1361);  
     msleep(1000);
     
     ao();
