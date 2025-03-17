@@ -1,0 +1,50 @@
+#include <kipr/wombat.h>
+ //Object center  320 is straight ahead on camera (x value)
+ //If the x value is between 0 - 319,  the object is to the left
+ //If the x value is between 321 - 640, the object is to the right
+ 
+ int main()
+ {
+     int stop =0;
+     int x;
+     int y;
+     camera_open();
+ 
+     while (stop ==0)
+     {
+         camera_update();
+         msleep(50);
+ 
+         if(get_object_count(0) > 1)
+         {
+             if(get_object_center_x(0,0) < 315)
+             {
+                 motor(0,-25);
+                 motor(3,25);
+             }
+             else if (get_object_center_x(0,0) > 325)
+ 
+             {
+                 motor(0,25);
+                 motor(3,-25);
+             }
+             else
+             {
+                 stop = 1;
+                 ao();
+             }
+ 
+ 
+             if(get_object_count(0) > 1)
+             {
+ 
+                 x = get_object_center_x(0,0);
+                 y = get_object_center_y(0,0);
+                 printf("The center of the object is (%d, %d).\n", x, y);
+             }
+         }
+     }
+     camera_close();
+ 
+     return 0;
+ }
