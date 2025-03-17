@@ -1,0 +1,101 @@
+#include <kipr/wombat.h>
+
+int main()
+{
+    printf("Hello World\n");
+    enable_servos();
+
+    set_servo_position(0,208); // get claw ready for grabing entree
+    msleep(1000);
+    set_servo_position(1,1500);
+    msleep(1000);
+
+    set_servo_position(0,1450);
+
+    motor(0,100); // drive towards the entrees
+    motor(1,100);
+    motor(2,100);
+    motor(3,100);
+    msleep(2400);
+
+    ao();
+    msleep(1000);
+
+    set_servo_position(1,2047);  //grab entree
+    msleep(1000);
+
+    set_servo_position(0,800);
+
+    ao();
+    msleep(1000);
+
+    motor(0,-100);// drive dackward from entree 
+    motor(1,-100);
+    motor(2,-100);
+    motor(3,-100);
+    msleep(1500);  
+
+    motor(0,-100);
+    motor(3,100);
+    motor(1,-100);
+    motor(2,100);
+    msleep(1480); // ture so it drives to trays
+
+    motor(0,100);
+    motor(1,100);
+    motor(2,100);
+    motor(3,100);
+    msleep(9000); // drives toword tray
+
+    motor(0,-100);
+    motor(3,100);
+    motor(1,-100);
+    motor(2,100);
+    msleep(1400); // ture toward tray
+
+    ao();
+    msleep(1000);
+
+    set_servo_position(0,1725); //get claw ready to drop entree
+    msleep(1000);
+
+    set_servo_position(1,1504);
+    msleep(1000);
+
+	motor(0,100);
+    motor(1,100);
+    motor(2,100);
+    motor(3,100);
+    msleep(550);
+    
+    ao();
+    msleep(1000);
+    
+    set_servo_position(0,1916);
+    msleep(1000);
+    
+    ao();
+    msleep(1000);
+    
+    set_servo_position(1,1750);
+    msleep(1000);
+
+	motor(0,-100);
+    motor(1,-100);
+    motor(2,-100);
+    motor(3,-100);
+    msleep(700);
+    
+    ao();
+    msleep(1000);
+    
+    
+    set_servo_position(0,1720);
+    msleep(1000);
+
+   
+
+    
+    
+    return 0;
+}
