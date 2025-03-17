@@ -44,6 +44,46 @@ int main()
     motor(0,-100);
     msleep(2000);
     
+     
+    set_servo_position(0,1399);
+    msleep(1000); 
+    
+    ao();
+    msleep(500);
+    
+    set_servo_position(3,285);
+    msleep(1000);
+    
+    motor(3,0);
+    motor(0,100);
+    msleep(1875);
+    
+    ao();
+    msleep(500);
+    
+    set_servo_position(0,1775);
+    msleep(1000);
+    
+    ao();
+    msleep(500);
+    
+    motor(3,98);
+    motor(0,100);
+    msleep(1100);
+    
+    ao();
+    msleep(500);
+    
+    set_servo_position(3,1361);
+    msleep(1000);
+    
+    ao();
+    msleep(500);
+    
+    motor(3,-98);
+    motor(0,-100);
+    msleep(2000);
+    
     
     
     
@@ -52,5 +92,12 @@ int main()
     
     
     disable_servos();
+    
+    
+    
+    
+    
+    
+   
     return 0;
 }
