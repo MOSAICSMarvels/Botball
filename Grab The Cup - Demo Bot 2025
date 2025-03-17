@@ -3,25 +3,43 @@
 int main()
 {
     printf("Hello World\n");
-    enable_servos();
-     
-    set_servo_position(0,1399);
-    msleep(1000); 
     
-    ao();
-    msleep(500);
+    enable_servos();
+    
+    set_servo_position(0,1399);
+    msleep(1000);
     
     set_servo_position(3,285);
     msleep(1000);
     
-    motor(3,0);
-    motor(0,100);
-    msleep(1875);
+    ao();
+    msleep(500);
+    
+    motor(0,99);
+    motor(3,100);   //Goes to Cup
+    msleep(3150);
+    
+    ao();
+    msleep(1000);
+    
+    set_servo_position(3,1179);    //Grabs Cup
+    msleep(1000);
+    
+    motor(3,-97);
+    motor(0,-100);
+    msleep(2000);
     
     ao();
     msleep(500);
     
-    set_servo_position(0,1775);
+    motor(3,100);
+    motor(0,0);
+    msleep(1725);   //Drives to beverage Station
+    
+    ao();
+    msleep(500);
+    
+    set_servo_position(0,655);
     msleep(1000);
     
     ao();
@@ -29,30 +47,29 @@ int main()
     
     motor(3,98);
     motor(0,100);
-    msleep(1100);
+    msleep(1250);
     
     ao();
     msleep(500);
     
-    set_servo_position(3,1361);  
+    set_servo_position(0,1500); 
     msleep(1000);
     
     ao();
     msleep(500);
     
+    set_servo_position(3,285); //Releases Cup
+    msleep(1000);
+    
     motor(3,-98);
     motor(0,-100);
     msleep(2000);
     
- 
+    
     
     disable_servos();
     
     
     
-    
-    
-    
-   
     return 0;
 }
