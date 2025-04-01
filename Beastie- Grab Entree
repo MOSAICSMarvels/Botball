@@ -4,12 +4,12 @@ int main()
 {
     printf("Hello World\n");
     enable_servos();
-    set_servo_position(0,325); //Start servo positions
+    set_servo_position(0,325);
     msleep(3000);
     set_servo_position(1,1390);
     msleep(1000);
   
-    motor(0,75);//Drive to entree
+    motor(0,75);
     motor(1,75);
     motor(2,75);
     motor(3,75);
@@ -18,7 +18,7 @@ int main()
     ao();
     msleep(100);
     
-    set_servo_position(0,1460); //grab entree
+    set_servo_position(0,1460);
     msleep(2000);
     
     ao();
@@ -33,7 +33,7 @@ int main()
     
     
     
-    motor(0,-75); //next 3 are going to the trays
+    motor(0,-75);
     motor(1,-75);
     motor(2,-75);
     motor(3,-75);
@@ -49,14 +49,14 @@ int main()
     motor(1,75);
     motor(2,75);
     motor(3,75);
-    msleep(9900);
+    msleep(10100);
     
-    motor(0,-75); //getting ready to drop hotdog in
+    motor(0,-75);
     motor(1,-75);
     motor(2,75);
     motor(3,75);
     msleep(1800);
-
+    
     motor(0,75);
     motor(1,75);
     motor(2,75);
@@ -67,21 +67,63 @@ int main()
     ao();
     msleep(100);
     
-    set_servo_position(0,1700); //dropping entree in tray
+    set_servo_position(0,1700);
     msleep(1000);
     
     ao();
     msleep(100);
-        set_servo_position(1,1600);
+        set_servo_position(1,1512);
     msleep(1000);
     
 
-       set_servo_position(0,2000); //picking up tray
+       set_servo_position(0,2000);
     msleep(1000);
     ao();
     msleep(100);
-    set_servo_position(1,2000);
+    
+       set_servo_position(1,2000);
     msleep(1000);
+    ao();
+    msleep(100);
+    
+       set_servo_position(0,1500);
+    msleep(1000);
+    ao();
+    msleep(100);
+   
+    motor(0,-75);
+    motor(1,-75);
+    motor(2,-75);
+    motor(3,-75);
+    msleep(700);
+    
+     motor(0,75);
+    motor(1,-75);
+    motor(2,75);
+    motor(3,-75);
+    msleep(3200);
+    
+    ao();
+    msleep(1000);
+       
+       set_servo_position(0,1800);
+    msleep(1000);
+    ao();
+    msleep(100);
+     
+     motor(0,75);
+    motor(1,75);
+    motor(2,75);
+    motor(3,75);
+    msleep(700);
+    
+    ao();
+    msleep(1000);
+    
+      set_servo_position(1,1500);
+    msleep(1000);
+    ao();
+    msleep(100);
 
     disable_servos();
     
