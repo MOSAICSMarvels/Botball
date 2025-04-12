@@ -2,8 +2,12 @@
 
 int main()
 {
-    printf("Hello World\n");
     enable_servos();
+    
+    
+    wait_for_light(0);
+    shut_down_in(119);
+    
     set_servo_position(0,325);
     msleep(3000);
     set_servo_position(1,1390);
@@ -49,7 +53,7 @@ int main()
     motor(1,75);
     motor(2,75);
     motor(3,75);
-    msleep(10100);
+    msleep(10150);
     
     motor(0,-75);
     motor(1,-75);
@@ -72,7 +76,7 @@ int main()
     
     ao();
     msleep(100);
-        set_servo_position(1,1512);
+        set_servo_position(1,1412);
     msleep(1000);
     
 
@@ -99,7 +103,7 @@ int main()
     
      motor(0,75);
     motor(1,-75);
-    motor(2,75);
+    motor(2,78);
     motor(3,-75);
     msleep(3200);
     
@@ -124,6 +128,30 @@ int main()
     msleep(1000);
     ao();
     msleep(100);
+    
+    motor(0,-75);
+    motor(1,-75);
+    motor(2,-75);
+    motor(3,-75);
+    msleep(1000);
+    
+     set_servo_position(0,800);
+    msleep(1000);
+    ao();
+    
+    msleep(100);
+    motor(0,75);
+    motor(1,75);
+    motor(2,-75);
+    motor(3,-75);
+    msleep(3200);
+    
+     set_servo_position(0,1695);
+    msleep(1000);
+    ao();
+    msleep(100);
+    
+    
 
     disable_servos();
     
