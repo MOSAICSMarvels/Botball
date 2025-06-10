@@ -1,0 +1,143 @@
+#include <kipr/wombat.h>
+
+int main()
+
+{
+    int arm = 0;
+    int position = 425;
+    //wait_for_light(0);
+    shut_down_in(119);
+    
+    enable_servos();
+    
+    set_servo_position(0,2047);
+    msleep(1000);
+    
+        motor(0,100);
+        motor(1,-100);
+        motor(2,95);
+        motor(3,-100);
+        msleep(2200);
+        ao();
+        msleep(100);
+    
+        motor(0,75);
+        motor(1,75);
+        motor(2,-75);
+        motor(3,-75);
+        msleep(1700);
+        ao();
+        msleep(100);
+    
+       
+        motor(0,-100);
+        motor(1,100);
+        motor(2,-90);
+        motor(3,100);
+        msleep(2800);
+        ao();
+        msleep(100);
+    
+    
+    set_servo_position(arm,position);
+    msleep(1000);
+    
+
+        motor(0,100);
+        motor(1,100);
+        motor(2,100);
+        motor(3,100);
+        msleep(1700);
+        ao();
+        msleep(100);
+    
+    while (position < 800)
+    {
+        position = position + 10;
+        set_servo_position(arm, position);
+        msleep(50);
+       // motor(0,100);
+        //motor(1,100);
+       // motor(2,-100);
+        //motor(3,-100);
+        //msleep(1);
+    }
+    ao();
+    msleep(1000);
+    
+    motor(0,-75);
+    motor(1,-75);
+    motor(2,-75);
+    motor(3,-75);
+    msleep(500);
+    
+    motor(0,75);
+    motor(1,75);
+    motor(2,-75);
+    motor(3,-75);
+    msleep(3400);
+    
+    motor(0,-100);
+    motor(1,100);
+    motor(2,-90);
+    motor(3,100);
+    msleep(500);
+    
+    motor(0,75);
+    motor(1,75);
+    motor(2,75);
+    motor(3,75);
+    msleep(2000);
+    
+    ao();
+    msleep(100);
+    
+    set_servo_position(0,425);
+    msleep(1000);
+    
+    ao();
+    msleep(100);
+    
+    motor(0,-75);
+    motor(1,-75);
+    motor(2,-75);
+    motor(3,-75);
+    msleep(2000);
+    
+    motor(0,-100);
+    motor(1,100);
+    motor(2,-90);
+    motor(3,100);
+    msleep(3000);
+    
+    set_servo_position(1,1024);
+    msleep(1000);
+    
+    set_servo_position(2,809);
+    msleep(1000);
+        
+    motor(0,-100);
+    motor(1,-100);
+    motor(2,-100);
+    motor(3,-100);
+    msleep(1000);
+    
+    ao();
+    msleep(100);
+    
+    set_servo_position(2,1655);
+    msleep(1000);
+    
+    ao();
+    msleep(100);
+    
+    motor(0,100);
+    motor(1,100);
+    motor(2,100);
+    motor(3,100);
+    msleep(3000);
+    
+    disable_servos();
+    
+    return 0;
+}
