@@ -1,0 +1,36 @@
+#include <kipr/wombat.h>
+
+void sideways_left();
+void forward();  
+int main()
+{
+    forward();
+    msleep(2000);
+    sideways_left();
+    msleep(10000);
+    
+    ao();
+    return 0;
+}
+void sideways_left()
+{
+	motor(0,70);
+    motor(1,-75);
+    motor(2,75);
+    motor(3,-75);
+}
+void forward()
+{
+	motor(0,-75);
+    motor(1,-75);
+    motor(2,-75);
+    motor(3,-75);
+}
+void sideways_right()
+{
+	motor(0,-75);
+    motor(1,75);
+    motor(2,-75);
+    motor(3,75);
+}
+
