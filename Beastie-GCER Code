@@ -1,0 +1,160 @@
+#include <kipr/wombat.h>
+
+int main()
+
+{
+    int arm = 0;
+    int position = 425;
+    //wait_for_light(0);
+    shut_down_in(119);
+
+    ao();//wait for Starlight to move out of startbox
+    msleep(10000);
+
+    ao();
+    msleep(5000);
+
+    enable_servos();
+
+    set_servo_position(1,644);//back arm in "up" position
+    msleep(1000);
+
+    set_servo_position(2,1253);//back claw ready to pick up tray
+    msleep(1000);
+
+    motor(0,84);//get out of start box, on way to water bottles
+    motor(1,-100);
+    motor(2,84);
+    motor(3,-84);
+    msleep(2500);
+    
+    ao();//pause to rest
+    msleep(100);
+
+    motor(0,84);//turn toward center/bottles
+    motor(1,100);
+    motor(2,-84);
+    motor(3,-84);
+    msleep(1500);
+   
+    ao();//pause to rest
+    msleep(100);
+
+
+    motor(0,-84);//drive sideways to align to waterbottles
+    motor(1,100);
+    motor(2,-84);
+    motor(3,84);
+    msleep(2900);
+    
+    ao();//pause to rest
+    msleep(100);
+
+
+    set_servo_position(arm,position);// front arm in "down" position to scoop up water bottles
+    msleep(1000);
+
+
+    motor(0,84);//drive to scoop up waterbottles
+    motor(1,100);
+    motor(2,84);
+    motor(3,84);
+    msleep(2000);
+    
+    ao();
+    msleep(100);
+
+    while (position < 800)//slowly raise arm to pick up bottles
+    {
+        position = position + 10;
+        set_servo_position(arm, position);
+        msleep(50);
+    }
+    ao();
+    msleep(1000);
+
+    motor(0,-84);//back up from pvc
+    motor(1,-100);
+    motor(2,-84);
+    motor(3,-84);
+    msleep(800);
+
+    motor(0,84);//turn around to face Beverage Station
+    motor(1,100);
+    motor(2,-84);
+    motor(3,-84);
+    msleep(3200);
+
+    motor(0,-84);//align to Beverage station
+    motor(1,100);
+    motor(2,-84);
+    motor(3,84);
+    msleep(800);
+
+    motor(0,84);//drive to beverage station
+    motor(1,100);
+    motor(2,84);
+    motor(3,84);
+    msleep(2100);
+
+    ao();
+    msleep(100);
+
+    set_servo_position(0,425);//set bottles down
+    msleep(1000);
+
+    ao();
+    msleep(100);
+
+    motor(0,-84);//back up to get away from pvc
+    motor(1,-100);
+    motor(2,-84);
+    motor(3,-84);
+    msleep(2500);
+    
+    ao();
+    msleep(100);
+    
+    motor(0,84);//turn around
+    motor(1,100);
+    motor(2,84);
+    motor(3,84);
+    msleep(400);
+        
+    
+    motor(0,-84);//turn around
+    motor(1,-100);
+    motor(2,84);
+    motor(3,84);
+    msleep(3000);
+    
+    ao();
+    msleep(100);
+    
+    set_servo_position(1,1700);
+    msleep(1000);
+    
+     set_servo_position(2,109);
+    msleep(1000);
+    
+    motor(0,-84);//turn around
+    motor(1,-100);
+    motor(2,-84);
+    motor(3,-84);
+    msleep(800);
+    
+    motor(0,-84);//turn around
+    motor(1,100);
+    motor(2,-84);
+    motor(3,84);
+    msleep(2000);
+    
+    ao();
+    msleep(100);
+    
+    set_servo_position(2,1253);//back claw ready to pick up tray
+    msleep(1000);
+    disable_servos();
+    return 0;
+
+}
