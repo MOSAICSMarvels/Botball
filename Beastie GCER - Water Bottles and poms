@@ -5,7 +5,6 @@ int main()
 {
     int arm = 0;
     int position = 425;
-    int hi = 425;
     wait_for_light(5);
     shut_down_in(119);
 
@@ -84,7 +83,7 @@ int main()
     motor(1,100);
     motor(2,-100);
     motor(3,-100);
-    msleep(2900);
+    msleep(2500);
 
     motor(0,-100);//align to Beverage station
     motor(1,100);
@@ -99,6 +98,10 @@ int main()
     msleep(2100);
 
     
+    ao();
+    msleep(100);
+    set_servo_position(0,425);
+    msleep(1000);
     ao();
     msleep(100);
 
