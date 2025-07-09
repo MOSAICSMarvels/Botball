@@ -5,7 +5,8 @@ int main()
 {
     int arm = 0;
     int position = 425;
-    //wait_for_light(0);
+    int hi = 425;
+    wait_for_light(5);
     shut_down_in(119);
 
     ao();//wait for Starlight to move out of startbox
@@ -22,30 +23,30 @@ int main()
     set_servo_position(2,1253);//back claw ready to pick up tray
     msleep(1000);
 
-    motor(0,84);//get out of start box, on way to water bottles
+    motor(0,100);//get out of start box, on way to water bottles
     motor(1,-100);
-    motor(2,84);
-    motor(3,-84);
+    motor(2,100);
+    motor(3,-100);
     msleep(2500);
     
     ao();//pause to rest
     msleep(100);
 
-    motor(0,84);//turn toward center/bottles
+    motor(0,100);//turn toward center/bottles
     motor(1,100);
-    motor(2,-84);
-    motor(3,-84);
-    msleep(1500);
+    motor(2,-100);
+    motor(3,-100);
+    msleep(1200);
    
     ao();//pause to rest
     msleep(100);
 
 
-    motor(0,-84);//drive sideways to align to waterbottles
+    motor(0,-100);//drive sideways to align to waterbottles
     motor(1,100);
-    motor(2,-84);
-    motor(3,84);
-    msleep(2900);
+    motor(2,-100);
+    motor(3,100);
+    msleep(2600);
     
     ao();//pause to rest
     msleep(100);
@@ -55,10 +56,10 @@ int main()
     msleep(1000);
 
 
-    motor(0,84);//drive to scoop up waterbottles
+    motor(0,100);//drive to scoop up waterbottles
     motor(1,100);
-    motor(2,84);
-    motor(3,84);
+    motor(2,100);
+    motor(3,100);
     msleep(2000);
     
     ao();
@@ -73,60 +74,55 @@ int main()
     ao();
     msleep(1000);
 
-    motor(0,-84);//back up from pvc
+    motor(0,-100);//back up from pvc
     motor(1,-100);
-    motor(2,-84);
-    motor(3,-84);
+    motor(2,-100);
+    motor(3,-100);
     msleep(800);
 
-    motor(0,84);//turn around to face Beverage Station
+    motor(0,100);//turn around to face Beverage Station
     motor(1,100);
-    motor(2,-84);
-    motor(3,-84);
-    msleep(3200);
+    motor(2,-100);
+    motor(3,-100);
+    msleep(2900);
 
-    motor(0,-84);//align to Beverage station
+    motor(0,-100);//align to Beverage station
     motor(1,100);
-    motor(2,-84);
-    motor(3,84);
-    msleep(800);
+    motor(2,-100);
+    motor(3,100);
+    msleep(1200);
 
-    motor(0,84);//drive to beverage station
+    motor(0,100);//drive to beverage station
     motor(1,100);
-    motor(2,84);
-    motor(3,84);
+    motor(2,100);
+    motor(3,100);
     msleep(2100);
 
+    
     ao();
     msleep(100);
 
-    set_servo_position(0,425);//set bottles down
-    msleep(1000);
-
-    ao();
-    msleep(100);
-
-    motor(0,-84);//back up to get away from pvc
+    motor(0,-100);//back up to get away from pvc
     motor(1,-100);
-    motor(2,-84);
-    motor(3,-84);
+    motor(2,-100);
+    motor(3,-100);
     msleep(2500);
     
     ao();
     msleep(100);
     
-    motor(0,84);//turn around
+    motor(0,100);//turn around
     motor(1,100);
-    motor(2,84);
-    motor(3,84);
+    motor(2,100);
+    motor(3,100);
     msleep(400);
         
     
-    motor(0,-84);//turn around
+    motor(0,-100);//turn around
     motor(1,-100);
-    motor(2,84);
-    motor(3,84);
-    msleep(3000);
+    motor(2,100);
+    motor(3,100);
+    msleep(2800);
     
     ao();
     msleep(100);
@@ -137,16 +133,22 @@ int main()
      set_servo_position(2,109);
     msleep(1000);
     
-    motor(0,-84);//turn around
+    motor(0,-100);//turn around
     motor(1,-100);
-    motor(2,-84);
-    motor(3,-84);
-    msleep(800);
+    motor(2,-100);
+    motor(3,-100);
+    msleep(200);
     
-    motor(0,-84);//turn around
+    motor(0,-100);//turn around
     motor(1,100);
-    motor(2,-84);
-    motor(3,84);
+    motor(2,-100);
+    motor(3,100);
+    msleep(2000);
+    
+    motor(0,100);//turn around
+    motor(1,-100);
+    motor(2,100);
+    motor(3,-100);
     msleep(2000);
     
     ao();
