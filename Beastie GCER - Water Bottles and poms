@@ -16,10 +16,10 @@ int main()
 
     enable_servos();
 
-    set_servo_position(1,644);//back arm in "up" position
+    set_servo_position(1,0);//back arm in "up" position
     msleep(1000);
 
-    set_servo_position(2,1253);//back claw ready to pick up tray
+    set_servo_position(2,800);//back claw ready to pick up tray
     msleep(1000);
 
     motor(0,100);//get out of start box, on way to water bottles
@@ -100,8 +100,15 @@ int main()
     
     ao();
     msleep(100);
-    set_servo_position(0,425);
-    msleep(1000);
+    position = 800;
+    set_servo_position(arm,position);
+    msleep(500);
+    while(position > 425)
+    {
+        position = position - 10;
+        set_servo_position(arm,position);
+        msleep(50);
+    }
     ao();
     msleep(100);
 
@@ -130,25 +137,28 @@ int main()
     ao();
     msleep(100);
     
-    set_servo_position(1,1700);
+    set_servo_position(1,1750);//back arm down to tha floor
     msleep(1000);
     
-     set_servo_position(2,109);
-    msleep(1000);
+     set_servo_position(2,109);//back claw open sesame
+    msleep(500);
     
-    motor(0,-100);//turn around
+    motor(0,-100);//back up to back pipe
     motor(1,-100);
     motor(2,-100);
     motor(3,-100);
     msleep(200);
     
-    motor(0,-100);//turn around
+    motor(0,-100);//move sideways to collect poms
     motor(1,100);
     motor(2,-100);
     motor(3,100);
     msleep(2000);
     
-    motor(0,100);//turn around
+    set_servo_position(2,800);
+    msleep(500);
+    
+    motor(0,100);//move the other way to move from tay tay
     motor(1,-100);
     motor(2,100);
     motor(3,-100);
@@ -157,7 +167,7 @@ int main()
     ao();
     msleep(100);
     
-    set_servo_position(2,1253);//back claw ready to pick up tray
+    set_servo_position(2,800);//back claw ready to pick up tray
     msleep(1000);
     disable_servos();
     return 0;
