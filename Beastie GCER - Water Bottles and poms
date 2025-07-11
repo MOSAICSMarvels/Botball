@@ -4,7 +4,7 @@ int main()
 
 {
     int arm = 0;
-    int position = 425;
+    int position = 430;
     wait_for_light(5);
     shut_down_in(119);
 
@@ -16,10 +16,10 @@ int main()
 
     enable_servos();
 
-    set_servo_position(1,0);//back arm in "up" position
+    set_servo_position(1,200);//back arm in "up" position
     msleep(1000);
 
-    set_servo_position(2,800);//back claw ready to pick up tray
+    set_servo_position(2,600);//back claw ready to pick up tray
     msleep(1000);
 
     motor(0,100);//get out of start box, on way to water bottles
@@ -45,7 +45,7 @@ int main()
     motor(1,100);
     motor(2,-100);
     motor(3,100);
-    msleep(2600);
+    msleep(2500);
     
     ao();//pause to rest
     msleep(100);
@@ -89,7 +89,7 @@ int main()
     motor(1,100);
     motor(2,-100);
     motor(3,100);
-    msleep(1200);
+    msleep(800);
 
     motor(0,100);//drive to beverage station
     motor(1,100);
@@ -121,6 +121,12 @@ int main()
     ao();
     msleep(100);
     
+    set_servo_position(0,1442);
+    msleep(500);
+    
+    ao();
+    msleep(100);
+    
     motor(0,100);//turn around
     motor(1,100);
     motor(2,100);
@@ -143,12 +149,6 @@ int main()
      set_servo_position(2,109);//back claw open sesame
     msleep(500);
     
-    motor(0,-100);//back up to back pipe
-    motor(1,-100);
-    motor(2,-100);
-    motor(3,-100);
-    msleep(200);
-    
     motor(0,-100);//move sideways to collect poms
     motor(1,100);
     motor(2,-100);
@@ -167,8 +167,38 @@ int main()
     ao();
     msleep(100);
     
-    set_servo_position(2,800);//back claw ready to pick up tray
+    set_servo_position(1,800);//back claw ready to pick up tray
     msleep(1000);
+    
+    ao();
+    msleep(100);
+    
+    motor(0,-100);
+    motor(1,-100);
+    motor(2,-100);
+    motor(3,-100);
+    msleep(2000);
+    
+    motor(0,-100);
+    motor(1,-100);
+    motor(2,0);
+    motor(3,0);
+    msleep(500);
+    
+    motor(0,100);
+    motor(1,100);
+    motor(2,100);
+    motor(3,100);
+    msleep(10000);
+    
+    motor(0,100);//get out of start box, on way to water bottles
+    motor(1,-100);
+    motor(2,100);
+    motor(3,-100);
+    msleep(2500);
+    printf("thank ya vry much. -Elvis Presley\n");
+    
+    
     disable_servos();
     return 0;
 
