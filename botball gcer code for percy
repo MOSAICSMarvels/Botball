@@ -1,30 +1,32 @@
+
 #include <kipr/wombat.h>
 
 int main()
 {
-    
+
     int arm = 0;
     int claw = 2;
-    int sarm = 590;
+    int sarm = 891;
     int sclaw = 0;
-    int down = 106;
-    int close = 1951;
+    int down = 500;
+    int close = 2047;
     int open = 1000;
-    int up = 1608;
+    int up = 1875;
+    int position = 900;
     //int up = 1726;
     enable_servos();
-    
+
     set_servo_position(arm,sarm);
     msleep(500);
-    
+
     set_servo_position(claw,sclaw);
     msleep(500);
-    
-    //wait_for_light(0);
-    
+
+    wait_for_light(0);
+
     shut_down_in(119);
-                 
-   while (analog (3) <= 300)//drive to the black line out of the start box, then stop
+
+    while (analog (3) <= 300)//drive to the black line out of the start box, then stop
     {
         motor(3,50);
         motor(0,50);
@@ -42,132 +44,148 @@ int main()
     motor(3,50);//drive onto the black line
     motor(0,50);
     msleep(1000);
-    
+
     ao();
     msleep(500);
-    
+
     while (analog (3) <= 300)//follow line to center black line, then stop
+    {
+        if (analog(5) >= 1225)//follow line
         {
-            if (analog(5) >= 1225)//follow line
-            {
-                motor(0,100);
-                motor(3,50);
-            }
-            else
-            {
-                motor(0,50);
-                motor(3,100);
-            }
+            motor(0,100);
+            motor(3,50);
         }
+        else
+        {
+            motor(0,50);
+            motor(3,100);
+        }
+    }
     ao();
     msleep(500);
-    
+
     motor(0,100);//get over the center hump
     motor(3,95);
     msleep(1000);
-    
+
     ao();
     msleep(500);
-    
-    
+
+
     while (analog (3) <= 300)//follow line to potato line then stop
+    {
+        if (analog(5) >= 1225)//follow line
         {
-            if (analog(5) >= 1225)//follow line
-            {
-                motor(0,100);
-                motor(3,50);
-            }
-            else
-            {
-                motor(0,50);           
-                motor(3,100);
-            }
+            motor(0,50);
+            motor(3,30);
         }
-    
+        else
+        {
+            motor(0,30);           
+            motor(3,50);
+        }
+    }
+
     ao();
     msleep(500);
-    
+
     motor(0,50);//get on black line
     motor(3,50);
-    msleep(850);
-    
-    motor(0,-50);//turn towards potato                                                                          llllllllllllll
+    msleep(950);
+
+    motor(0,-50);//turn towards potato                                                                         
     motor(3,50);
-    msleep(1590);
-    
+    msleep(1480);
+
     ao();
     msleep(500);
-    
-    set_servo_position(arm,down);
-    msleep(500);
-    
+
+    while(position >= 480)
+    {
+        position = position -10;
+        set_servo_position(arm,position);//move arm down towards potato slowly
+        msleep(50);
+    }
+
     ao();
     msleep(500);
-    
+
     motor(3,20);
     motor(0,20);//move closer to potato
-    msleep(500);
-    
+    msleep(1000);
+
     ao();
     msleep(500);
-    
+
     set_servo_position(claw,open);
     msleep(500);
-    
+
     ao();
     msleep(800);
-    
+
     ao();
     msleep(500);
     
-    
-    set_servo_position(claw,close);
+    set_servo_position(claw,2047);
     msleep(500);
-    
+
     ao();
     msleep(1500);
-    
-    set_servo_position(arm,300);
+
+    set_servo_position(arm,750);
     msleep(500);
-    
+
     ao();
     msleep(500);
-    
+
     motor(0,-100);//back up towards fryer
     motor(3,-100);
     msleep(1850);
     
+    motor(3,100);
+    motor(0,0);
+    msleep(100);
+    
+    motor(0,-20);
+    motor(3,-20);
+    msleep(500);
+
     ao();
     msleep(500);
-    
-    set_servo_position(arm,up);
-    msleep(500);
-    
+
+
+    while(position <= 1900)
+    {
+        position = position +10;
+        set_servo_position(arm,position); //lift arm up towards fryer slowly 
+        msleep(50);
+    }
+
     ao();
     msleep(1000);
-    
+
     set_servo_position(claw,open);
     msleep(500);
-    
+
     ao();
-    msleep(3000);
-    
+    msleep(10000);
+
+    // beggining of Sidni s part of code
     int startarm = 560;
     int startclaw = 290;
     int left = 730;
     int right = 0;
-    int straight = 600;
-    int forward = 420;
+    int straight = 601;
+    int forward = 600;
     int middle = 407;
     int back = 1298;
     int blose = 1825;
-    printf("GrAb BoTgUy Or ElSe YoU'rE gRoUnDeD!\n");
 
     enable_servos();
 
     set_servo_position(arm, startarm);//starting position for arm
     msleep(500);
-    
+
     set_servo_position(claw, startclaw);//starting position for claw
     msleep(500);
 
@@ -175,7 +193,7 @@ int main()
     motor(0,96);
     motor(3,95);
     msleep(750);
-  
+
     while (analog (3) <= 300)//drive to the black line out of the start box, then stop
     {
         motor(0,48);
@@ -183,14 +201,14 @@ int main()
     }
     ao();
     msleep(500);
-    
+
     motor(0,96);
     motor(3,95);
     msleep(500);
 
     motor(0,-50);//turn toward the line
     motor(3,50);
-    msleep(1850);
+    msleep(1750);
 
     ao();
     msleep(500);
@@ -198,51 +216,51 @@ int main()
     motor(0,50);//drive onto the black line
     motor(3,50);
     msleep(800);
-    
+
     ao();
     msleep(500);
 
 
     while (analog (5) <= 300)//follow line to center black line, then stop
+    {
+        if (analog(3) >= 1225)//follow line
         {
-            if (analog(3) >= 1225)//follow line
-            {
-                motor(0,30);
-                motor(3,100);
-            }
-            else
-            {
-                motor(0,100);
-                motor(3,30);
-            }
+            motor(0,30);
+            motor(3,100);
         }
-    
+        else
+        {
+            motor(0,100);
+            motor(3,30);
+        }
+    }
+
     ao();
     msleep(500);
-    
+
     set_servo_position(arm, up);
     msleep(500);
-    
+
     motor(3,50);
     motor(0,50);
     msleep(850);
-    
-    while (analog(5) <= 300)
+
+    while (analog(5) <= 300)//follow black line to grab Botguy
     {
         motor(0,50);
         motor(3,-50);
     } 
-    
+
     motor(0,100);
     motor(3,0);
     msleep(1500);
-    
+
     while (analog(5) <= 300)
     {
         motor(0,50);
         motor(3,-50);
     } 
-    
+
     motor(0,100);
     motor(3,100);
     msleep(1500);
@@ -252,10 +270,10 @@ int main()
 
     set_servo_position(arm, forward);
     msleep(500);
-    
+
     ao();
     msleep(500);
-    
+
     set_servo_position(claw, close);
     msleep(500);
 
@@ -292,15 +310,91 @@ int main()
     ao();
     msleep(500);
 
+    while (analog (3) <= 300)//drive to the black line out of the start box, then stop
+    {
+        motor(3,-50);
+        motor(0,-50);
+    }
+
+    motor(0,-50);                                                                        
+    motor(3,50);
+    msleep(1450);
+
+    motor(0,100);
+    motor(3,100);
+    msleep(500);
+
+    while (analog (5) <= 300)//follow line to center black line, then stop
+    {
+        if (analog(3) >= 1225)//follow line
+        {
+            motor(0,30);
+            motor(3,100);
+        }
+        else
+        {
+            motor(0,100);
+            motor(3,30);
+        }
+    }
+
+    motor(0,-50);                                                                        
+    motor(3,50);
+    msleep(1450);
+
+    motor(0,100);
+    motor(3,100);
+    msleep(850);
 
     set_servo_position(arm, middle);
     msleep(500);
     set_servo_position(claw, open);
     msleep(500);
     
+    motor(0,-96);
+    motor(3,-95);
+    msleep(1000);
+    
+    motor(0,55);
+    motor(3,0);
+    msleep(1500);
+    
+    motor(0,96);
+    motor(3,95);
+    msleep(2000);
+    
+    set_servo_position(claw, open);
+    msleep(500);
+    set_servo_position(arm, middle);
+    msleep(500);
+    
+    motor(0,96);
+    motor(3,95);
+    msleep(1000);
+    
+    set_servo_position(claw, close);
+    msleep(500);
+    
+    motor(0,-96);
+    motor(3,-95);
+    msleep(800);
+    
+    motor(0,0);
+    motor(3,70);
+    msleep(750);
+    
+    set_servo_position(claw, open);
+    msleep(500);
+    
+    motor(0,-96);
+    motor(3,-95);
+    msleep(500);
+    
+    
+
     disable_servos();
-    
-    
-    
+
+
+
     return 0;
 }
