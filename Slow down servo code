@@ -3,9 +3,9 @@
 int main()
 {
     int count = 0;
-    int counter = 200;
     int arm = 0;
     int up = 700;
+    int counter = up;
     int down = 1800;
     enable_servos();
     printf("Hello World\n");
