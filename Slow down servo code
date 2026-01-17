@@ -8,19 +8,20 @@ int main()
     int up = 700;
     int down = 1800;
     enable_servos();
+    printf("Hello World\n");
 
-set_servo_position(arm,up);
-        msleep(1000);
+    set_servo_position(arm,up);
+    msleep(1000);
     ao();
     msleep(100);
-//to lower the servo slowly
-while(count < 5)
-{
-msleep (5);
-counter = counter + 100;
-set_servo_position(arm, down);
-count = count + 1;
+    //to lower the servo slowly
+    while(counter < down)
+    {
+        msleep (10);
+        counter = counter + 10;
+        set_servo_position(arm, counter);
+    }
+    ao();
+    msleep(100);
+    return 0;
 }
-   
-    ao();
-    msleep(100);
