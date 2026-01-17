@@ -5,20 +5,20 @@ int main()
     int count = 0;
     int arm = 0;
     int up = 700;
-    int counter = up;
     int down = 1800;
+    int counter = down;
     enable_servos();
     printf("Hello World\n");
 
-    set_servo_position(arm,up);
+    set_servo_position(arm,down);
     msleep(1000);
     ao();
     msleep(100);
     //to lower the servo slowly
-    while(counter < down)
+    while(counter > up)
     {
         msleep (10);
-        counter = counter + 10;
+        counter = counter - 10;
         set_servo_position(arm, counter);
     }
     ao();
