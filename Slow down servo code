@@ -1,0 +1,26 @@
+#include <kipr/wombat.h>
+
+int main()
+{
+    int count = 0;
+    int counter = 200;
+    int arm = 0;
+    int up = 700;
+    int down = 1800;
+    enable_servos();
+
+set_servo_position(arm,up);
+        msleep(1000);
+    ao();
+    msleep(100);
+//to lower the servo slowly
+while(count < 5)
+{
+msleep (5);
+counter = counter + 100;
+set_servo_position(arm, down);
+count = count + 1;
+}
+   
+    ao();
+    msleep(100);
